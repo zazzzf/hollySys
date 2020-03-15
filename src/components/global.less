@@ -1,7 +1,6 @@
 @import './index.less';
 
 body {
-
   &.colorWeak {
     filter: invert(80%);
   }
@@ -10,6 +9,9 @@ body {
   }
 }
 
+.ant-layout{
+  background-color: @my-background-color;
+}
 .layout.ant-layout {
   height: auto;
   overflow-x: hidden;
@@ -132,9 +134,10 @@ body {
   }
 
   .header {
+    color: @base-font-color !important;
     height: 64px;
     padding: 0 12px 0 0;
-    background: #fff;
+    background: @header-color;
     box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
     position: relative;
   }
@@ -151,7 +154,7 @@ body {
         display: inline-block;
         transition: all 0.3s;
         height: 100%;
-        color: rgba(0, 0, 0, 0.65);
+        color: @base-font-color;
 
         &:hover {
           background: rgba(0, 0, 0, 0.025);
@@ -239,21 +242,23 @@ body {
       }
     }
   }
-
+  
   .top-nav-header-index {
     box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
     position: relative;
     transition: background 0.3s, width 0.2s;
 
     .header-index-wide {
-      max-width: 1200px;
-      margin: auto;
+      // max-width: 1200px;
+      // margin: auto;
       padding-left: 0;
       display: flex;
       height: 64px;
+      justify-content: space-between;
+      background-color: @base-color;
 
       .ant-menu.ant-menu-horizontal {
-        max-width: 835px;
+        // max-width: 835px;
         flex: 0 1 835px;
         border: none;
         height: 64px;
@@ -341,7 +346,7 @@ body {
 
 .topmenu {
   .page-header-index-wide {
-    max-width: 1200px;
+    // max-width: 1200px;
     margin: 0 auto;
   }
 }
@@ -378,7 +383,7 @@ body {
 
   .ant-layout-sider-children {
     overflow-y: hidden;
-
+    background: @base-color;
     &:hover {
       overflow-y: auto;
     }
@@ -395,7 +400,7 @@ body {
     padding-left: 24px;
     overflow: hidden;
     line-height: 64px;
-    background: #002140;
+    background: @header-color;
     transition: all .3s;
 
     img,
@@ -506,4 +511,80 @@ body {
       margin-right: 8px;
     }
   }
+}
+.ant-menu-dark{
+  background:  @base-color;
+}
+
+//ant 主题y样式覆盖
+*{
+  color: @base-font-color !important;
+}
+
+.my-ant-footer{
+  height: 10px;
+  background: @base-color;
+}
+.ant-card {
+  background: @base-color;
+  color: @base-font-color;
+  &-head-title{
+    color: @base-font-color;
+  }
+}
+.ant-tabs{
+  color: @base-font-color;
+}
+.ant-input, 
+.ant-input-number-input, 
+.ant-calendar , 
+.ant-calendar-input, 
+.ant-form-item-label > label, 
+.ant-form-explain , 
+.ant-radio-wrapper,
+.ant-radio-button-wrapper,
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
+.ant-dropdown-menu,
+.ant-table-thead>tr>th,
+.ant-badge-status-text,
+.ant-select-selection,
+.ant-select-dropdown-menu-item,
+.ant-select-dropdown-menu-item-selected,
+.ant-select-dropdown-menu-item-active,
+.ant-btn,
+.ant-alert,
+.ant-alert-info,
+.extra,
+.ant-tag,
+.ant-card-actions,
+.ant-modal-content,
+.ant-drawer-content,
+.ant-message-notice-content
+{
+  background-color: @base-color !important;
+  color: @base-font-color !important;
+}
+.ant-table-tbody>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td, 
+.ant-table-tbody>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td, 
+.ant-table-thead>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td, 
+.ant-table-thead>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,
+.ant-dropdown-menu-item:hover
+{
+  background-color: @my-background-color !important;
+  color: @base-font-color !important;
+}
+.description-list{
+  .content,.term,.title{
+    color: @base-font-color !important;
+  }
+}
+
+.title,
+.description
+{
+  color: @base-font-color !important;
+}
+
+#userLayout.user-layout-wrapper .container{
+  background: @my-background-color !important;
 }

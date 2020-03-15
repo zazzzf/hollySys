@@ -22,15 +22,16 @@
     <side-menu
       v-else-if="isSideMenu()"
       mode="inline"
-      :menus="menus"
+      :menus="leftMenus"
       :theme="navTheme"
-      :collapsed="collapsed"
+      :collapsed="false"
       :collapsible="true"
     ></side-menu>
+    
 
     <a-layout :class="[layoutMode, `content-width-${contentWidth}`]" :style="{ paddingLeft: contentPaddingLeft, minHeight: '100vh' }">
       <!-- layout header -->
-      <global-header
+      <global-header-top
         :mode="layoutMode"
         :menus="menus"
         :theme="navTheme"
@@ -38,7 +39,17 @@
         :device="device"
         @toggle="toggle"
       />
-
+      <div :style="{margin: '0 24px'}">
+        <global-header
+          v-if="thisPath !== '/home/index'"
+          mode="psidemenu"
+          :menus="menus"
+          :theme="navTheme"
+          :collapsed="collapsed"
+          :device="device"
+          @toggle="toggle"
+        />
+      </div>
       <!-- layout content -->
       <a-layout-content :style="{ height: '100%', margin: '24px 24px 0', paddingTop: fixedHeader ? '64px' : '0' }">
         <multi-tab v-if="multiTab"></multi-tab>
@@ -49,14 +60,14 @@
 
       <!-- layout footer -->
       <a-layout-footer>
-        <global-footer />
+        <div class="my-ant-footer"></div>
+        <!-- <global-footer /> -->
       </a-layout-footer>
 
       <!-- Setting Drawer (show in development mode) -->
       <setting-drawer v-if="!production"></setting-drawer>
     </a-layout>
   </a-layout>
-
 </template>
 
 <script>
@@ -68,9 +79,11 @@ import config from '@/config/defaultSettings'
 import RouteView from './RouteView'
 import SideMenu from '@/components/Menu/SideMenu'
 import GlobalHeader from '@/components/GlobalHeader'
-import GlobalFooter from '@/components/GlobalFooter'
+import GlobalHeaderTop from '@/components/GlobalHeaderTop'
+// import GlobalFooter from '@/components/GlobalFooter'
 import SettingDrawer from '@/components/SettingDrawer'
 import { convertRoutes } from '@/utils/routeConvert'
+
 
 export default {
   name: 'BasicLayout',
@@ -79,14 +92,17 @@ export default {
     RouteView,
     SideMenu,
     GlobalHeader,
-    GlobalFooter,
-    SettingDrawer
+    GlobalHeaderTop,
+    // GlobalFooter,
+    SettingDrawer,
   },
   data () {
     return {
       production: config.production,
       collapsed: false,
-      menus: []
+      menus: [],
+      leftMenus: [],
+      newLeftMenus: [],
     }
   },
   computed: {
@@ -94,6 +110,9 @@ export default {
       // 动态主路由
       mainMenu: state => state.permission.addRouters
     }),
+    thisPath(){
+      return this.$route.path
+    },
     contentPaddingLeft () {
       if (!this.fixSidebar || this.isMobile()) {
         return '0'
@@ -112,7 +131,15 @@ export default {
   created () {
     const routes = convertRoutes(this.mainMenu.find(item => item.path === '/'))
     this.menus = (routes && routes.children) || []
-    this.collapsed = !this.sidebarOpened
+    this.leftMenus = this.menus.map((e)=>{
+          if(typeof e === 'object'){
+              return Object.assign({},e)
+          }else{
+              return e
+          }
+      })
+    this.leftMenus[1].children = this.leftMenus[1].children.slice(0,1)
+    this.leftMenus = this.leftMenus.slice(1,2)
   },
   mounted () {
     const userAgent = navigator.userAgent

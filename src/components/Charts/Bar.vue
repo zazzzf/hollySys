@@ -1,6 +1,6 @@
 <template>
   <div :style="{ padding: '0 0 32px 32px' }">
-    <h4 :style="{ marginBottom: '20px' }">{{ title }}</h4>
+    <p :style="{ marginBottom: '20px' }">{{ title }}</p>
     <v-chart
       height="254"
       :data="data"
@@ -60,3 +60,4 @@ export default {
   }
 }
 </script>
+

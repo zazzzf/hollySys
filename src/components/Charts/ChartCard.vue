@@ -61,7 +61,6 @@ export default {
       position: relative;
       overflow: hidden;
       width: 100%;
-      color: rgba(0, 0, 0, .45);
       font-size: 14px;
       line-height: 22px;
     }
@@ -110,7 +109,6 @@ export default {
     text-overflow: ellipsis;
     word-break: break-all;
     white-space: nowrap;
-    color: #000;
     margin-top: 4px;
     margin-bottom: 0;
     font-size: 30px;

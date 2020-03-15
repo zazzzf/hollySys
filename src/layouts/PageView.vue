@@ -1,7 +1,8 @@
 <template>
   <div :style="!$route.meta.hiddenHeaderContent ? 'margin: -24px -24px 0px;' : null">
-    <!-- pageHeader , route meta :true on hide -->
-    <page-header v-if="!$route.meta.hiddenHeaderContent" :title="pageTitle" :logo="logo" :avatar="avatar">
+    <!-- pageHeader , route meta :true on hide -->  
+    <!-- !$route.meta.hiddenHeaderContent 这里直接去掉了全局头部 -->
+    <page-header v-if="false" :title="pageTitle" :logo="logo" :avatar="avatar">
       <slot slot="action" name="action"></slot>
       <slot slot="content" name="headerContent"></slot>
       <div slot="content" v-if="!this.$slots.headerContent && description">
