@@ -6,8 +6,8 @@
       :data="data"
       :forceFit="true"
       :padding="['auto', 'auto', '40', '50']">
-      <v-tooltip />
-      <v-axis />
+      <v-tooltip  />
+      <v-axis  />
       <v-bar position="x*y"/>
     </v-chart>
   </div>
@@ -52,6 +52,11 @@ export default {
           })
         ]
       }
+    }
+  },
+  computed:{
+    chartTheme(){
+      return this.$store.state.app.chartTheme
     }
   },
   data () {

@@ -7,7 +7,7 @@
             <a-icon type="info-circle-o" />
           </a-tooltip>
           <div>
-            <trend flag="up" style="margin-right: 16px;">
+            <trend flag="up" style="margin-right: 16px;">销售额排行
               <span slot="term">周同比</span>
               12%
             </trend>

@@ -76,6 +76,19 @@ const vueConfig = {
 
           // 'primary-color': '#fff',
           // 'link-color': '#F5222D',
+          'primary-color': '#1890ff', // 全局主色
+          'link-color': '#1890ff', // 链接色
+          'success-color': '#52c41a', // 成功色
+          'warning-color': '#faad14', // 警告色
+          'error-color': '#f5222d', // 错误色
+          'font-size-base': '14px', // 主字号
+          'heading-color': 'rgba(0, 0, 0, 0.85)', // 标题色
+          'text-color': '#fff', // 主文本色
+          'text-color-secondary': 'rgba(255, 255, 255, 0.8)', // 次文本色
+          'disabled-color': '#fff', // 失效色
+          // 'border-radius-base': '4px', // 组件/浮层圆角
+          'border-color-base': '#d9d9d9', // 边框色
+          // 'box-shadow-base': '0 2px 8px rgba(0, 0, 0, 0.15)', // 浮层阴影
           'border-radius-base': '2px'
         },
         // DO NOT REMOVE THIS LINE
@@ -99,7 +112,7 @@ const vueConfig = {
 
   // disable source map in production
   productionSourceMap: false,
-  lintOnSave: undefined,
+  lintOnSave: false,
   // babel-loader no-ignore node_modules/*
   transpileDependencies: []
 }

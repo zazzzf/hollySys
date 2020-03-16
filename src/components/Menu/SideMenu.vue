@@ -6,13 +6,26 @@
     v-model="collapsed"
     :trigger="null">
     <logo />
-    <s-menu
+    <!-- <s-menu
       :collapsed="collapsed"
       :menu="menus"
       :theme="theme"
       :mode="mode"
       @select="onSelect"
-      style="padding: 16px 0px;"></s-menu>
+      style="padding: 16px 0px;"></s-menu> -->
+      <a-menu
+      :defaultSelectedKeys="selectKeys"
+      :defaultOpenKeys="['sub1']"
+      mode="inline"
+      theme="dark"
+      :inlineCollapsed="collapsed"
+      @select="onSelect"
+    >
+      <a-sub-menu key="sub1">
+        <span slot="title"><a-icon type="mail" /><span>项目列表</span></span>
+        <a-menu-item key="5">项目1</a-menu-item>
+      </a-sub-menu>
+    </a-menu>
   </a-layout-sider>
 
 </template>
@@ -52,10 +65,15 @@ export default {
       required: true
     }
   },
+  data(){
+    return{
+      selectKeys: ['5']
+    }
+  },
   methods: {
     onSelect (obj) {
       this.$emit('menuSelect', obj)
     }
-  }
+  },
 }
 </script>

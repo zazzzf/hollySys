@@ -41,7 +41,6 @@
       />
       <div :style="{margin: '0 24px'}">
         <global-header
-          v-if="thisPath !== '/home/index'"
           mode="psidemenu"
           :menus="menus"
           :theme="navTheme"

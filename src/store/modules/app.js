@@ -11,6 +11,7 @@ import {
   DEFAULT_CONTENT_WIDTH_TYPE,
   DEFAULT_MULTI_TAB
 } from '@/store/mutation-types'
+import chartTheme from '@/utils/theme'
 
 const app = {
   state: {
@@ -24,7 +25,8 @@ const app = {
     autoHideHeader: false,
     color: null,
     weak: false,
-    multiTab: true
+    multiTab: true,
+    chartTheme,
   },
   mutations: {
     SET_SIDEBAR_TYPE: (state, type) => {

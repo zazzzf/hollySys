@@ -512,18 +512,16 @@ body {
     }
   }
 }
+
+//ant 主题y样式覆盖
+
 .ant-menu-dark{
   background:  @base-color;
 }
 
-//ant 主题y样式覆盖
-*{
-  color: @base-font-color !important;
-}
-
 .my-ant-footer{
   height: 10px;
-  background: @base-color;
+  background: @my-background-color
 }
 .ant-card {
   background: @base-color;
@@ -532,9 +530,9 @@ body {
     color: @base-font-color;
   }
 }
-.ant-tabs{
-  color: @base-font-color;
-}
+// .ant-tabs{
+//   color: @base-font-color;
+// }
 .ant-input, 
 .ant-input-number-input, 
 .ant-calendar , 
@@ -559,7 +557,12 @@ body {
 .ant-card-actions,
 .ant-modal-content,
 .ant-drawer-content,
-.ant-message-notice-content
+.ant-message-notice-content,
+.ant-notification-notice,
+.ant-dropdown-menu-item > a, 
+.ant-dropdown-menu-submenu-title > a,
+.ant-pagination-item-active,
+td
 {
   background-color: @base-color !important;
   color: @base-font-color !important;
@@ -567,12 +570,13 @@ body {
 .ant-table-tbody>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td, 
 .ant-table-tbody>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td, 
 .ant-table-thead>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td, 
-.ant-table-thead>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,
-.ant-dropdown-menu-item:hover
+.ant-table-thead>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td
 {
   background-color: @my-background-color !important;
   color: @base-font-color !important;
 }
+
+
 .description-list{
   .content,.term,.title{
     color: @base-font-color !important;
@@ -580,11 +584,35 @@ body {
 }
 
 .title,
-.description
+.description,
+.list span,
+.ant-pagination-item a,
+.ant-pagination-item-ellipsis,
+.ant-pagination-item-link,
+h1, h2, h3, h4, h5, h6,
+.project-list .project-item a,
+.project-list .card-description,
+.project-list .card-title a,
+.ant-modal-confirm-body .ant-modal-confirm-title,
+.ant-modal-confirm-body .ant-modal-confirm-content,
+#userLayout.user-layout-wrapper .container .top .desc,
+#userLayout.user-layout-wrapper .container .footer .copyright,
+#userLayout.user-layout-wrapper .container .footer .links a,
+.ant-calendar-year-select
 {
   color: @base-font-color !important;
 }
 
 #userLayout.user-layout-wrapper .container{
   background: @my-background-color !important;
+}
+
+
+.ant-alert-message,
+.ant-steps-item-title,
+.ant-steps-item-wait .ant-steps-item-icon > .ant-steps-icon,
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title,
+.step-form-style-desc p
+{
+  color: @base-tip-color
 }
